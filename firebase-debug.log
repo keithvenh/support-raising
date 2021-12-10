@@ -1,0 +1,29 @@
+[debug] [2021-12-10T02:26:40.697Z] ----------------------------------------------------------------------
+[debug] [2021-12-10T02:26:40.699Z] Command:       /Users/keithvenh/.nvm/versions/node/v14.17.5/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2021-12-10T02:26:40.699Z] CLI Version:   9.23.0
+[debug] [2021-12-10T02:26:40.699Z] Platform:      darwin
+[debug] [2021-12-10T02:26:40.699Z] Node Version:  v14.17.5
+[debug] [2021-12-10T02:26:40.700Z] Time:          Thu Dec 09 2021 16:26:40 GMT-1000 (Hawaii-Aleutian Standard Time)
+[debug] [2021-12-10T02:26:40.700Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-12-10T02:26:40.757Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-12-10T02:26:40.758Z] > authorizing via signed-in user (keith.venhuizen@gmail.com)
+[debug] [2021-12-10T02:26:40.758Z] [iam] checking project supportraisingapp for permissions ["firebase.projects.get"]
+[debug] [2021-12-10T02:26:40.759Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/supportraisingapp:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-12-10T02:26:41.151Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 10 Dec 2021 02:26:41 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=200","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-10T02:26:41.152Z] > refreshing access token with scopes: []
+[debug] [2021-12-10T02:26:41.152Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-12-10T02:26:41.440Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Fri, 10 Dec 2021 02:26:41 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-12-10T02:26:41.458Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/supportraisingapp [none]
+[debug] [2021-12-10T02:26:41.864Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/supportraisingapp 200
+[debug] [2021-12-10T02:26:41.865Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/supportraisingapp {"projectId":"supportraisingapp","projectNumber":"582192203944","displayName":"SupportRaisingApp","name":"projects/supportraisingapp","resources":{"hostingSite":"supportraisingapp","realtimeDatabaseInstance":"supportraisingapp-default-rtdb","storageBucket":"supportraisingapp.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[debug] [2021-12-10T02:26:41.865Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/supportraisingapp/sites 
+[debug] [2021-12-10T02:26:42.476Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/supportraisingapp/sites 200
+[debug] [2021-12-10T02:26:42.476Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/supportraisingapp/sites {"sites":[{"name":"projects/582192203944/sites/supportraisingapp","defaultUrl":"https://supportraisingapp.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2021-12-10T02:26:42.476Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/supportraisingapp/webApps/-/config [none]
+[debug] [2021-12-10T02:26:43.012Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/supportraisingapp/webApps/-/config 200
+[debug] [2021-12-10T02:26:43.013Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/supportraisingapp/webApps/-/config {"projectId":"supportraisingapp","appId":"1:582192203944:web:97f44bf2bb9de9575dda9d","databaseURL":"https://supportraisingapp-default-rtdb.firebaseio.com","storageBucket":"supportraisingapp.appspot.com","locationId":"us-central","apiKey":"AIzaSyCa-LqKp_ZBk8lxPPI1sZXW0JRFlSQGD4k","authDomain":"supportraisingapp.firebaseapp.com","messagingSenderId":"582192203944","measurementId":"G-TBE6711TS0"}
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
