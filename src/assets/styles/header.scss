@@ -1,0 +1,19 @@
+@import "variables";
+
+.nav {
+    display: flex;
+    list-style-type: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8em;
+    float: right;
+    margin-right: 40px;
+}
+.navLink {
+    color: $darkTeal;
+    margin-left: 20px;
+    &:hover {
+        cursor: pointer;
+        color: $orange;
+    }
+}
