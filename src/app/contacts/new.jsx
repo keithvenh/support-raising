@@ -1,3 +1,4 @@
+import { query } from '@firebase/firestore';
 import React from 'react';
 import createContact from '../../db/contacts/new';
 
@@ -64,7 +65,7 @@ class NewContact extends React.Component {
             phone: '',
             email: '',
             birthday: '',
-            maritalStatus: true,
+            maritalStatus: false,
             spouse: {
                 name: '',
                 phone: '',
@@ -87,7 +88,8 @@ class NewContact extends React.Component {
             }
         }
         this.vaidateInput = this.validateInput.bind(this);
-        this.buttonHandler = this.buttonHandler.bind(this);
+        this.updateSpouse = this.updateSpouse.bind(this);
+
     }
 
     validateInput(event) {
@@ -119,6 +121,14 @@ class NewContact extends React.Component {
 
     }
 
+    updateSpouse(event) {
+
+        event.preventDefault();
+        console.log(this.state.maritalStatus);
+        this.setState({ maritalStatus: !this.state.maritalStatus });
+        
+    }
+
     buttonHandler() {
         console.log("Last Name: " + this.state.lastName);
         console.log("First Name: "  + this.state.firstName);
@@ -129,124 +139,168 @@ class NewContact extends React.Component {
         if (this.state.maritalStatus) {
             spouse = (
                 <div className='contact-spouse-container'>
-                    <input
-                    id="spouseFirstName" 
-                    className='text-input'
-                    type="text"
-                    name='spouseName'
-                    onChange={(event) => this.validateInput(event)}
-                    value={this.state.firstName}
-                    placeholder='First Name'
-                    required
-                    />
+                    <p className="spouse-label">Spouse</p>
+                    <div className="form-field">
 
+                        <input
+                        id="spouseFirstName" 
+                        className='text-input form-input'
+                        type="text"
+                        name='spouseName'
+                        onChange={(event) => this.validateInput(event)}
+                        value={this.state.firstName}
+                        placeholder='Spouse First Name'
+                        />
 
-                    <input 
-                    id="spousePhone" 
-                    className='text-input'
-                    type="tel"
-                    name="spousePhone"
-                    placeholder='Pbone Number'
-                    value={this.state.phone}
-                    onChange={(event) => this.validateInput(event)}
-                    required
-                    />
+                    </div>
 
-                    <input 
-                    id="spouseEmail" 
-                    className='text-input'
-                    type="email"
-                    name="spouseEmail"
-                    placeholder='Email'
-                    value={this.state.email}
-                    onChange={(event) => this.validateInput(event)}
-                    required
-                    />
+                    <div className="form-field">
 
-                    <input 
-                    id="spouseBirthday" 
-                    className='text-input'
-                    type="date"
-                    name="spouseBirthday"
-                    value={this.state.birthday}
-                    onChange={(event) => this.validateInput(event)}
-                    required
-                    />
+                        <input 
+                        id="spousePhone" 
+                        className='text-input form-input'
+                        type="tel"
+                        name="spousePhone"
+                        placeholder='Spouse Pbone Number'
+                        value={this.state.phone}
+                        onChange={(event) => this.validateInput(event)}
+                        />
+
+                    </div>
+
+                    <div className="form-field">
+
+                        <input 
+                        id="spouseEmail" 
+                        className='text-input form-input'
+                        type="email"
+                        name="spouseEmail"
+                        placeholder='Spouse Email'
+                        value={this.state.email}
+                        onChange={(event) => this.validateInput(event)}
+                        />
+                        
+                    </div>
+
+                    <div className="form-field">
+
+                        <input 
+                        id="spouseBirthday" 
+                        className='date-input form-input'
+                        type="date"
+                        name="spouseBirthday"
+                        value={this.state.birthday}
+                        onChange={(event) => this.validateInput(event)}
+                        />
+
+                    </div>
+
                 </div>
             )
         }
         return(
             <div className="contact-container">
-                <input
-                id="contactLastName" 
-                className='text-input'
-                type="text"
-                name='lastName'
-                onChange={(event) => this.validateInput(event)}
-                value={this.state.lastName}
-                placeholder='Last Name'
-                autoFocus
-                required
-                />
+                <div className="form form-new form-new-contact">
+                    
+                    <div className="form-field">
 
-                <input
-                id="contactFirstName" 
-                className='text-input'
-                type="text"
-                name='firstName'
-                onChange={(event) => this.validateInput(event)}
-                value={this.state.firstName}
-                placeholder='First Name'
-                required
-                />
+                        <input
+                        id="contactLastName" 
+                        className='text-input form-input'
+                        type="text"
+                        name='lastName'
+                        onChange={(event) => this.validateInput(event)}
+                        value={this.state.lastName}
+                        placeholder='Last Name'
+                        autoFocus
+                        required
+                        />
+
+                    </div>
+
+                    <div className="form-field">
+
+                        <input
+                        id="contactFirstName" 
+                        className='text-input form-input'
+                        type="text"
+                        name='firstName'
+                        onChange={(event) => this.validateInput(event)}
+                        value={this.state.firstName}
+                        placeholder='First Name'
+                        required
+                        />
+
+                    </div>
+
+                    <div className="form-field">
+
+                        <input 
+                        id="contactPhone" 
+                        className='text-input form-input'
+                        type="tel"
+                        name="phone"
+                        placeholder='Pbone Number'
+                        value={this.state.phone}
+                        onChange={(event) => this.validateInput(event)}
+                        required
+                        />
+
+                    </div>
+
+                    <div className="form-field">
+
+                        <input 
+                        id="contactEmail" 
+                        className='text-input form-input'
+                        type="email"
+                        name="email"
+                        placeholder='Email'
+                        value={this.state.email}
+                        onChange={(event) => this.validateInput(event)}
+                        required
+                        />
+
+                    </div>
+                    
+                    <div className="form-field">
+
+                        <input 
+                        id="contactBirthday" 
+                        className='date-input form-input'
+                        type="date"
+                        name="birthday"
+                        value={this.state.birthday}
+                        onChange={(event) => this.validateInput(event)}
+                        required
+                        />
+                        
+                    </div>
+
+                    <div className="form-field">
+
+                        <a className='btn btn-update' onClick={(e) => this.updateSpouse(e)}>{ this.state.maritalStatus ? "Remove Spouse" : "Add Spouse" }</a>
+
+                    </div>
+
+                    <div className="form-field">
+
+                        <a className='btn btn-update' onClick={this.addChild}>Add Child</a>
+
+                    </div>
+
+                    <div className="form-field">
+
+                        <a className='btn btn-save' onClick={this.saveContact}>Save Contact</a>
+
+                    </div>
+
+                    {spouse}
 
 
-                <input 
-                id="contactPhone" 
-                className='text-input'
-                type="tel"
-                name="phone"
-                placeholder='Pbone Number'
-                value={this.state.phone}
-                onChange={(event) => this.validateInput(event)}
-                required
-                />
 
-                <input 
-                id="contactEmail" 
-                className='text-input'
-                type="email"
-                name="email"
-                placeholder='Email'
-                value={this.state.email}
-                onChange={(event) => this.validateInput(event)}
-                required
-                />
+                </div>
 
-                <input 
-                id="contactBirthday" 
-                className='text-input'
-                type="date"
-                name="birthday"
-                value={this.state.birthday}
-                onChange={(event) => this.validateInput(event)}
-                required
-                />
-
-                <input 
-                id="contactMaritalStatus" 
-                className='text-input'
-                type="checkbox"
-                name="maritalStatus"
-                value={this.state.maritalStatus}
-                checked={this.state.maritalStatus ? true : false}
-                onChange={(event) => this.validateInput(event)}
-                required
-                />
-
-                {spouse}
-
-                <button className='btn btn-submit' onClick={this.buttonHandler}>Roll</button>
             </div>
         )
     }

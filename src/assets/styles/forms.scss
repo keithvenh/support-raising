@@ -1,0 +1,51 @@
+@import "variables";
+
+.form {
+    display: flex;
+}
+
+.form-feild {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    font-size: 16px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #333;
+}
+
+.text-input {
+    padding: 6px;
+}
+
+.date-input {
+    padding: 3.5px;
+}
+
+.new-contact-form {
+    border: 1px solid red;
+}
+
+.btn-update {
+    color: $darkTeal;
+    padding: 6px 20px;
+    font-size: 16px;
+    line-height: 28px;
+    &:hover {
+        cursor: pointer;
+        color: $orange;
+    }
+}
+
+.btn-save {
+    color: $orange;
+    padding: 6px 20px;
+    font-size: 16px;
+    line-height: 28px;
+    &:hover {
+        cursor: pointer;
+        color: $lightTeal;
+    }
+}
